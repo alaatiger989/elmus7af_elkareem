@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border_sourah"
+    tools:context=".ReadingSourah.View.ui.home.View.HomeFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="آل عمران"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/sourah_name_border"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"
+            android:textColor="#5a3604"
+            android:textStyle="bold|italic"
+            android:textSize="25sp"
+            android:fontFamily="@font/qalam_ayat1"
+            android:id="@+id/sourah_name"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/sourah_name"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+
+            android:layout_above="@id/bottomBorder"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sourah_basmalah"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/Basmalah"
+                    android:textSize="25sp"
+                    android:textColor="#693f04"
+                    android:textStyle="bold|italic"
+                    android:fontFamily="@font/qalam_ayat1"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sourah_ayats"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/sourah_basmalah"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:lineSpacingExtra = "5dp"
+                    android:fontFamily="@font/aga_arabic"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginLeft="18dp"
+                    android:textAlignment="viewEnd"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="end"
+                    android:textDirection="rtl"/>
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/right_side_border"
+            />
+
+        <ImageView
+            android:id="@+id/bottomBorder"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

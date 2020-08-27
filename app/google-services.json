@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "839920941938",
+    "firebase_url": "https://elmus7afelkareem.firebaseio.com",
+    "project_id": "elmus7afelkareem",
+    "storage_bucket": "elmus7afelkareem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839920941938:android:606ca4666c0aa12a3fbbeb",
+        "android_client_info": {
+          "package_name": "com.example.elmus7af_elkareem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839920941938-0b55t2vuiifnidvuococln5jcaa71j0u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.elmus7af_elkareem",
+            "certificate_hash": "3f0dab02e0549b2a76c683de26639fde28edebf7"
+          }
+        },
+        {
+          "client_id": "839920941938-8aoc95o4uul6ooorg9c7m4980nemjbv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYLyi7hOltbdvL_EtBSJnQTGWkmPZpegw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839920941938-8aoc95o4uul6ooorg9c7m4980nemjbv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

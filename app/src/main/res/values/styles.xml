@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+        <item name="android:textColorPrimary">#000000</item>
+    </style>
+
+    <style name="CustomAlertDialogStyle">
+        <item name="android:bottomBright">#FFC400</item>
+        <item name="android:bottomDark">#FFC400</item>
+        <item name="android:bottomMedium">#FFC400</item>
+        <item name="android:centerBright">#FFC400</item>
+        <item name="android:centerDark">#FFC400</item>
+        <item name="android:centerMedium">#FFC400</item>
+        <item name="android:fullBright">#FFC400</item>
+        <item name="android:fullDark">#FFC400</item>
+        <item name="android:topBright">#FFC400</item>
+        <item name="android:topDark">#FFC400</item>
+    </style>
+
+</resources>

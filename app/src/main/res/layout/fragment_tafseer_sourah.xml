@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/tafseer_background"
+    tools:context=".ReadingSourah.View.ui.TafseerSourah.View.TafseerSourahFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:cardCornerRadius="16dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="#757575"
+            android:id="@+id/card_search_view">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/search_icon"
+                    android:layout_margin="8dp"
+                    android:id="@+id/icon_search"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true" />
+                <EditText
+                    android:id="@+id/edittext_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/icon_search"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_toRightOf="@id/icon_search"
+                    android:textSize="17sp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="#FFFF"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="15dp" />
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="آل عمران"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/sourah_name_border"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_horizontal"
+            android:textColor="#FF3D00"
+            android:textStyle="bold|italic"
+            android:textSize="25sp"
+            android:fontFamily="@font/qalam_ayat1"
+            android:id="@+id/sourah_name"
+            android:layout_below="@id/card_search_view"
+            />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sourah_name"
+            android:layout_margin="15dp"
+            android:id="@+id/tafseer_ayat_recyclerView"
+            />
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>
