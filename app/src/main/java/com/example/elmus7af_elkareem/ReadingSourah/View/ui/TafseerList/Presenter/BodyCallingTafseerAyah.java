@@ -17,7 +17,7 @@ import retrofit2.Response;
 
 public class BodyCallingTafseerAyah {
     private List<TafseerAyats> tafseerAyahResponses = new ArrayList<>();
-
+    private static final String TAG = "BodyCallingTafseerAyah";
     public BodyCallingTafseerAyah(Context context, String tafseer_id, int sourahNumber, int ayahNumber, String arabic_ayah_text , String numberOfAyahInApi) {
         AppDatabase database = AppDatabase.getInstance(context);
         try {
@@ -28,7 +28,7 @@ public class BodyCallingTafseerAyah {
                 @Override
                 public void onResponse(Call<TafseerAyahResponse> call, Response<TafseerAyahResponse> response) {
                     TafseerAyahResponse tafseerAyahResponse = response.body();
-
+                    Log.i(TAG , "Connection successful");
                     tafseerAyahResponses.add(new TafseerAyats(
                             Integer.parseInt(numberOfAyahInApi),
                             tafseer_id,

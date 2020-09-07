@@ -8,11 +8,15 @@ import android.os.Bundle;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +27,7 @@ import com.example.elmus7af_elkareem.DatabaseRoom.TafseerAyats;
 import com.example.elmus7af_elkareem.ParentsModel.SourahDataParentModel;
 import com.example.elmus7af_elkareem.R;
 import com.example.elmus7af_elkareem.ReadingSourah.Model.ReadingSourahModel;
+import com.example.elmus7af_elkareem.ReadingSourah.View.ui.TafseerList.View.TafseerListFragment;
 import com.example.elmus7af_elkareem.ReadingSourah.View.ui.TafseerSourah.Presenter.TafseerSourahPresenter;
 
 import java.io.File;
@@ -36,7 +41,7 @@ public class TafseerSourahFragment extends Fragment implements ITafseerSourahVie
     private RecyclerView tafseerAyatRecyclerView;
     private EditText editTextSearch;
     private TafseerSourahPresenter tafseerSourahPresenter;
-
+    private static final String TAG  = "TafseerSourahFragment";
     public TafseerSourahFragment(){}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,6 +98,22 @@ public class TafseerSourahFragment extends Fragment implements ITafseerSourahVie
     @Override
     public void onStop() {
         super.onStop();
+        Log.i(TAG , "Fragment Has been Stopped");
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG , "Fragment Has been Destroyed");
+
         tafseerSourahPresenter.stopAudioInBackPressed();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG , "Fragment Has been Paused");
+
     }
 }

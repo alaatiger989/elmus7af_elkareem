@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/tafseer_background"
+    android:id="@+id/container_tafseer_sourah"
     tools:context=".ReadingSourah.View.ui.TafseerSourah.View.TafseerSourahFragment">
 
 

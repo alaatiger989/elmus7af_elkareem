@@ -53,7 +53,7 @@ public class GettingQuranData extends AsyncTask<Integer,Integer,String> {
             {
                 publishProgress(i *100 /100);
                 try {
-                    Thread.sleep(1500);
+                    Thread.sleep(600);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -71,7 +71,7 @@ public class GettingQuranData extends AsyncTask<Integer,Integer,String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        Toast.makeText(context , s , Toast.LENGTH_LONG).show();
+
         progressDialog.setProgress(0);
         progressDialog.dismiss();
 

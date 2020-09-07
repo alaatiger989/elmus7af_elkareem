@@ -1,6 +1,7 @@
 package com.example.elmus7af_elkareem.ReadingSourah.Presenter;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.example.elmus7af_elkareem.NotificationHandling.NotificationGenerator;
 import com.example.elmus7af_elkareem.ParentsModel.DataParentModel;
@@ -37,7 +38,6 @@ public class ReadingSourahPresenter {
         }
         else{
             new NotificationGenerator().DownloadNotification(context);
-
         }
 
     }

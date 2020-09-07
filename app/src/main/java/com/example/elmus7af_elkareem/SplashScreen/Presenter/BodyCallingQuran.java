@@ -1,6 +1,8 @@
 package com.example.elmus7af_elkareem.SplashScreen.Presenter;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.elmus7af_elkareem.DatabaseRoom.AppDatabase;
 import com.example.elmus7af_elkareem.DatabaseRoom.QuranWdefaultSheikh;
@@ -15,11 +17,14 @@ import retrofit2.Response;
 
 public class BodyCallingQuran {
 
-    public List<QuranWdefaultSheikh> quranWdefaultSheikhList = new ArrayList<>();
-    public AppDatabase db;
+    private List<QuranWdefaultSheikh> quranWdefaultSheikhList = new ArrayList<>();
+    private AppDatabase db;
+    private static final String TAG = "BodyCallingQuran";
     public BodyCallingQuran(final Context context)
     {
         db = AppDatabase.getInstance(context);
+
+
         Call<QuranResponse> call = RetrofitClientQuran.getInstance().getSourahs().getQuran();
         call.enqueue(new Callback<QuranResponse>() {
             @Override
@@ -28,7 +33,7 @@ public class BodyCallingQuran {
                 try{
                     if(quranResponse.getCode() == 200)
                     {
-
+                        Log.i(TAG , "Response Successful");
                         try{
                             for (int i = 0 ; i < quranResponse.getData().getSurahsList().size() ; i++)
                             {

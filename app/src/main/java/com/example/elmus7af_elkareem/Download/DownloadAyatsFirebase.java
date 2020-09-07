@@ -13,12 +13,15 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import com.example.elmus7af_elkareem.NotificationHandling.NotificationGenerator;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DownloadAyatsFirebase {
     private long downloadId;
@@ -26,12 +29,13 @@ public class DownloadAyatsFirebase {
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
     StorageReference ref;
-
-    public static int counter = 1;
-
+    private static List<Long> sizeOfDownloadIds = new ArrayList<>();
+    private static int count = 1 ;
+    private static final String TAG = "DownloadAyatsFirebase";
 
     public DownloadAyatsFirebase(Context context, String numberOfSourah, String numberOfAyah) {
         this.context = context;
+
 
         storageReference = firebaseStorage.getInstance().getReference();
         ref = storageReference.child("Ayats/"+numberOfSourah+"/"+numberOfAyah+".mp3");
@@ -43,7 +47,8 @@ public class DownloadAyatsFirebase {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Log.i(TAG , "Failure in " + numberOfSourah);
+                new DownloadAyatsFirebase(context , numberOfSourah , numberOfAyah);
             }
         });
     }
@@ -53,6 +58,8 @@ public class DownloadAyatsFirebase {
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
         request.setDestinationInExternalFilesDir(context , "Ayats/"+numberOfSouarh,numberOfAyah+".mp3");
-        downloadManager.enqueue(request);
+        downloadId = downloadManager.enqueue(request);
+
     }
+
 }

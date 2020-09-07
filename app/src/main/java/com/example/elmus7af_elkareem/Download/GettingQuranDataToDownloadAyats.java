@@ -14,28 +14,20 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 
-public class GettingQuranDataFromDB {
-    public AppDatabase db;
-    public List<QuranWdefaultSheikh> quranWdefaultSheikhList = new ArrayList<>();
+public class GettingQuranDataToDownloadAyats {
+    private AppDatabase db;
+    private List<QuranWdefaultSheikh> quranWdefaultSheikhList = new ArrayList<>();
 
-    @SuppressLint("CheckResult")
-    public GettingQuranDataFromDB(Context context) {
+
+
+    protected void GettingData(Context context)
+    {
         db = AppDatabase.getInstance(context);
-//        quranWdefaultSheikhList.addAll(db.quranDao().getQuran());
 
         for (int i = 1 ; i<=114 ; i++)
         {
             quranWdefaultSheikhList.addAll(db.quranDao().getSourahDetails(String.valueOf(i)));
         }
-
-        for (int i = 1  ; i<=quranWdefaultSheikhList.size() ; i++ )
-        {
-            new DownloadSouarFirebase(context , String.valueOf(i));
-        }
-
-
-
-
         //Download Ayats
         for (int i = 1 ; i <= quranWdefaultSheikhList.size() ; i++)
         {
@@ -44,7 +36,7 @@ public class GettingQuranDataFromDB {
 
             for(int k = 1 ; k<= Integer.parseInt(quranWdefaultSheikhList.get(i-1).getNUMBER_OF_AYATS()) ; k++)
             {
-                    new DownloadAyatsFirebase(context , String.valueOf(i) , String.valueOf(k));
+                new DownloadAyatsFirebase(context , String.valueOf(i) , String.valueOf(k));
             }
 
         }

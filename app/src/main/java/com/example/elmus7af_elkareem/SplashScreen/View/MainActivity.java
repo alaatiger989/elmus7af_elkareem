@@ -18,6 +18,8 @@ import com.example.elmus7af_elkareem.MainView.View.MainViews;
 import com.example.elmus7af_elkareem.R;
 import com.example.elmus7af_elkareem.SplashScreen.Presenter.SplashPresenter;
 
+import java.io.File;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -31,13 +33,16 @@ public class MainActivity extends AppCompatActivity implements IMainView{
     private Animation topAnim, bottomAnim;
 
     private int SPLASH_SCREEN_DELAY = 5000;
+    private static final String TAG = "MainActivity";
     SplashPresenter splashPresenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
         //Animations
         topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
@@ -50,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements IMainView{
         splashPresenter = new SplashPresenter(this);
         splashPresenter.getResultOfCheck(MainActivity.this);
         splashPresenter.checkFilesOfAudio();
+
 
     }
 

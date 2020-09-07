@@ -1,5 +1,7 @@
 package com.example.elmus7af_elkareem.SplashScreen.Data.QuranRetrofit;
 
+import com.google.android.gms.common.api.Api;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;

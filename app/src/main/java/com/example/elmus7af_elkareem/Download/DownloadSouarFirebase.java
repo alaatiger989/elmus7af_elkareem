@@ -17,12 +17,18 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class DownloadSouarFirebase {
+public class DownloadSouarFirebase{
     private long downloadId;
     Context context;
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
     StorageReference ref;
+    private static int count = 1 ;
+    private static final String TAG = "DownloadSouarFirebase";
+
+
+
+
     public DownloadSouarFirebase(Context context , String numberOfSouarh) {
             this.context = context;
 
@@ -47,6 +53,11 @@ public class DownloadSouarFirebase {
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
         request.setDestinationInExternalFilesDir(context , "Souar",numberOfSouarh+".mp3");
+        request.setDescription("سورة" + " " + numberOfSouarh + " .mp3");
         downloadManager.enqueue(request);
+
+
     }
+
+
 }

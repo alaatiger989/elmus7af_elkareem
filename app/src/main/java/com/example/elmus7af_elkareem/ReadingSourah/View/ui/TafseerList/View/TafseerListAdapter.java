@@ -2,6 +2,7 @@ package com.example.elmus7af_elkareem.ReadingSourah.View.ui.TafseerList.View;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import java.util.List;
 public class TafseerListAdapter extends RecyclerView.Adapter<TafseerListAdapter.TafseerDataHolder>{
     List<TafseerNames> tafseerListResponse =new ArrayList<>();
     List<TafseerAyats> tafseerAyats = new ArrayList<>();
+    private static final String TAG = "TafseerListAdapter";
     private Context context;
     private AppDatabase database;
     @NonNull
@@ -30,18 +32,17 @@ public class TafseerListAdapter extends RecyclerView.Adapter<TafseerListAdapter.
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.tafseer_item, parent, false
                 );
-         database = AppDatabase.getInstance(context);
+        database = AppDatabase.getInstance(context);
+        tafseerAyats.addAll(database.tafseerAyatsDao().getTafseerIds());
         return new TafseerDataHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TafseerDataHolder holder, int position) {
 
-        List<TafseerAyats> tafseerAyats = new ArrayList<>();
-        AppDatabase database = AppDatabase.getInstance(context);
 
-        tafseerAyats.addAll(database.tafseerAyatsDao().getTafseerIds());
-        if (tafseerAyats.get(0).getTafseer_ID().equalsIgnoreCase(String.valueOf(position+1)) )
+
+        if (tafseerAyats.size()!= 0 && tafseerAyats.get(0).getTafseer_ID().equalsIgnoreCase(String.valueOf(position+1)) )
         {
             holder.cardView.setCardBackgroundColor(Color.parseColor("#303F9F"));
         }
@@ -53,7 +54,7 @@ public class TafseerListAdapter extends RecyclerView.Adapter<TafseerListAdapter.
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.i(TAG , "Iam in position " + (position+1));
                  new GettingTafseerData(context , (position+1)).execute(114);
             }
         });

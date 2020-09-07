@@ -1,8 +1,10 @@
 package com.example.elmus7af_elkareem.ReadingSourah.View;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
 
 
 import com.example.elmus7af_elkareem.MainView.View.MainViews;
@@ -10,8 +12,14 @@ import com.example.elmus7af_elkareem.R;
 import com.example.elmus7af_elkareem.ReadingSourah.Model.ReadingSourahModel;
 import com.example.elmus7af_elkareem.ReadingSourah.Presenter.ReadingSourahPresenter;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,10 +32,12 @@ import androidx.appcompat.widget.Toolbar;
 
 public class ReadingSourah extends AppCompatActivity implements IReadingSourah {
 
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private AppBarConfiguration mAppBarConfiguration;
     private NavController navController;
     private NavigationView navigationView;
     private ReadingSourahPresenter readingSourahPresenter;
+    private static final String TAG = "ReadingSouarah";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,4 +105,5 @@ public class ReadingSourah extends AppCompatActivity implements IReadingSourah {
             }
         });
     }
+
 }

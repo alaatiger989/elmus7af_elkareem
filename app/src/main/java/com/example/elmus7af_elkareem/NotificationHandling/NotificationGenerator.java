@@ -74,7 +74,7 @@ public class NotificationGenerator {
 
         nc.setPriority(NotificationCompat.PRIORITY_HIGH);
         nc.setOnlyAlertOnce(true);
-        nc.setOngoing(false);
+        nc.setOngoing(true);
         nc.setOnlyAlertOnce(true);
 
         notificationManager.notify(1, nc.build());
@@ -102,6 +102,12 @@ public class NotificationGenerator {
 
         notificationManager.notify(1, nc.build());
 
+    }
+    public void CancelDownload(Context context)
+    {
+        notificationManager = NotificationManagerCompat.from(context);
+        Bitmap artwork = BitmapFactory.decodeResource(context.getResources(), R.drawable.quran_logo);
+        notificationManager.cancel(1);
     }
 
 }
